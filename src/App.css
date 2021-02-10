@@ -14,7 +14,7 @@ code {
 
 .App {
   min-height: 100vh;
-  background-color: #004d7e;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
