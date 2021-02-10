@@ -96,5 +96,9 @@ code {
 
 .text-input {
   position: absolute !important;
-  bottom: 5vh;
+  bottom: 10vh;
+}
+
+.text-input button {
+  margin-left: 15px;
 }

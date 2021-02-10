@@ -124,8 +124,14 @@ function App() {
       <img src={background} className="App-background" alt="background" />
       <div className="grid-wrapper">
       <div className="text-input">
-        <input onChange={(e) => setTextCode(e.target.value)} type="text" value={textCode} maxLength={5} />
-        <button onClick={()=> generateBingo()} disabled ={textCode.length !== 5}>
+        <input
+          type="text" 
+          value={textCode}
+          maxLength={5}
+          placeholder='Type 5 length string here'
+          onChange={(e) => setTextCode(e.target.value)}
+        />
+        <button onClick={()=> generateBingo()} disabled ={textCode.length !== 5} >
           Generate Bingo
         </button>
       </div>
