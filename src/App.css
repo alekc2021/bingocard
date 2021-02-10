@@ -23,7 +23,8 @@ code {
 }
 
 .App-background {
-  height: 779px;
+  height: 500px;
+  margin-top: 50px;
 }
 
 .grid-wrapper {

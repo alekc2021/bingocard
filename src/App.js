@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import background from "./assets/background.jpg";
+import background from "./assets/background.png";
 import Number from "./Number";
 import "./App.css";
 
@@ -23,7 +23,7 @@ const getRestNum = (value) => value < 30 ? (value >= 15 ? value - 15 : value) : 
 
 const generateCode = (length) => {
   var result           = '';
-  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
   var charactersLength = characters.length;
   for ( var i = 0; i < length; i++ ) {
      result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -113,6 +113,12 @@ function App() {
   const generateBingo = () => {
     setNumbers(generateNumbersFromCode(textCode));
   }
+
+  const generateAutoBingo = () => {
+    const autoCode = generateCode(5);
+    setTextCode(autoCode);
+    setNumbers(generateNumbersFromCode(autoCode));
+  }
   useEffect(() => {
     setTimeout(() => {
       setNumbers(generateNumbersFromCode(generateCode(5)));
@@ -131,8 +137,11 @@ function App() {
           placeholder='Type 5 length string here'
           onChange={(e) => setTextCode(e.target.value)}
         />
-        <button onClick={()=> generateBingo()} disabled ={textCode.length !== 5} >
+        <button onClick={()=> generateBingo()} disabled ={textCode.length !== 5}>
           Generate Bingo
+        </button>
+        <button onClick={()=> generateAutoBingo()} >
+          Auto Generate
         </button>
       </div>
         <div className="grid">
