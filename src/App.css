@@ -19,11 +19,11 @@ code {
   justify-content: center;
   align-items: center;
   overflow: auto;
-  min-width: 600px;
+  min-width: 510px;
 }
 
 .App-background {
-  height: 500px;
+  height: 510px;
   margin-top: 50px;
 }
 
@@ -38,29 +38,61 @@ code {
   align-items: center;
   min-width: 460px;
   min-height: 460px;
-  /* padding-left: 67px; */
+ /*  padding-left: 67px; */
+}
+
+@media (max-width: 510px) {
+  .reactapp {
+    padding: 0 10px;
+  }
+  .reactapp .App {
+    min-width: 0;
+    min-height: 100vh;
+  }
+  .reactapp .grid-wrapper {
+    min-width: 0;
+    min-height: 0;
+  }
+  .App-background {
+    height: auto;
+    max-width: 100%;
+  }
+  .grid {
+    left: 0 !important;
+    min-width: 0 !important;
+    width: 84vw !important;
+    margin-top: 60px !important;
+    height: 75vw !important;
+    padding: 48px 16px 30px 14px!important;
+  }
+}
+@media (max-width: 400px) {
+  .grid {
+    padding: 48px 16px 30px 14px!important;
+  }
 }
 
 @media only screen and (max-width: 600px) and (max-height: 779px){
   .grid {
     position: absolute;
     left: 62px;
-    top: 156px;
+  }
+  .text-input {
+    position: absolute !important;
+    bottom: 20px !important;
+  }
+  .grid-wrapper {
+    padding-left: 67px !important;
   }
 }
 
 @media only screen and (max-width: 600px) and (min-height: 779px){
-  .grid {
-    position: absolute;
-    top: calc(50% - 222px);
-    left: 64px;
-  }
+
 }
 
 @media only screen and (min-width: 600px) and (max-height: 779px){
   .grid {
     position: absolute;
-    top: 156px;
     left: calc(50% - 235px);
   }
 }

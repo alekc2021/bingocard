@@ -138,22 +138,19 @@ function App() {
     <div className="App">
       <img src={background} className="App-background" alt="background" />
       <div className="grid-wrapper">
-      <div className="text-input">
-        <input
-          type="text" 
-          value={textCode}
-          maxLength={5}
-          placeholder='Type 5 length string here'
-          onChange={(e) => setTextCode(e.target.value)}
-          disabled={!isAdmin}
-        />
-        <button onClick={()=> generateBingo()} disabled ={textCode.length !== 5}  hidden={!isAdmin}>
-          Generate Bingo
-        </button>
-        <button onClick={()=> generateAutoBingo()} hidden={!isAdmin}>
-          Auto Generate
-        </button>
-      </div>
+        <div className="text-input">
+          <input
+            type="text"
+            value={textCode}
+            maxLength={5}
+            placeholder='Type 5 length string here'
+            onChange={(e) => setTextCode(e.target.value)}
+            disabled={!isAdmin}
+          />
+          <button onClick={()=> generateBingo()} disabled ={textCode.length !== 5}  hidden={!isAdmin}>
+            Generate Bingo
+          </button>
+        </div>
         <div className="grid">
           {numbers.map((numArr, index) => (
             <div className="col" key={index}>
