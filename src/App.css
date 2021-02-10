@@ -93,3 +93,8 @@ code {
   top: 0;
   left: 0;
 }
+
+.text-input {
+  position: absolute !important;
+  bottom: 5vh;
+}

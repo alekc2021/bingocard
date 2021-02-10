@@ -109,6 +109,10 @@ const generateNumbersFromCode = (code) => {
 
 function App() {
   const [numbers, setNumbers] = useState([]);
+  const [textCode, setTextCode] = useState('');
+  const generateBingo = () => {
+    setNumbers(generateNumbersFromCode(textCode));
+  }
   useEffect(() => {
     setTimeout(() => {
       setNumbers(generateNumbersFromCode(generateCode(5)));
@@ -119,6 +123,12 @@ function App() {
     <div className="App">
       <img src={background} className="App-background" alt="background" />
       <div className="grid-wrapper">
+      <div className="text-input">
+        <input onChange={(e) => setTextCode(e.target.value)} type="text" value={textCode} maxLength={5} />
+        <button onClick={()=> generateBingo()} disabled ={textCode.length !== 5}>
+          Generate Bingo
+        </button>
+      </div>
         <div className="grid">
           {numbers.map((numArr, index) => (
             <div className="col" key={index}>
