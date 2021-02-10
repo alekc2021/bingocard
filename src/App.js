@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from 'react-router-dom'
 import background from "./assets/background.png";
 import Number from "./Number";
 import "./App.css";
@@ -108,7 +109,9 @@ const generateNumbersFromCode = (code) => {
 };
 
 function App() {
+  const history = useHistory()
   const [numbers, setNumbers] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [textCode, setTextCode] = useState('');
   const generateBingo = () => {
     setNumbers(generateNumbersFromCode(textCode));
@@ -120,8 +123,14 @@ function App() {
     setNumbers(generateNumbersFromCode(autoCode));
   }
   useEffect(() => {
+    console.log(history.location.pathname)
+    if(history.location.pathname == '/admin') {
+      setIsAdmin(true)
+    }
     setTimeout(() => {
-      setNumbers(generateNumbersFromCode(generateCode(5)));
+      const autoCode = generateCode(5);
+      setNumbers(generateNumbersFromCode(autoCode));
+      setTextCode(autoCode)
       //generateNumbersFromCode(generateCode(5))
     }, 500);
   }, []);
@@ -136,11 +145,12 @@ function App() {
           maxLength={5}
           placeholder='Type 5 length string here'
           onChange={(e) => setTextCode(e.target.value)}
+          disabled={!isAdmin}
         />
-        <button onClick={()=> generateBingo()} disabled ={textCode.length !== 5}>
+        <button onClick={()=> generateBingo()} disabled ={textCode.length !== 5}  hidden={!isAdmin}>
           Generate Bingo
         </button>
-        <button onClick={()=> generateAutoBingo()} >
+        <button onClick={()=> generateAutoBingo()} hidden={!isAdmin}>
           Auto Generate
         </button>
       </div>
