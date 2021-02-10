@@ -28,6 +28,7 @@ const generateCode = (length) => {
   for ( var i = 0; i < length; i++ ) {
      result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
+  console.log('letter code ---> ' + result)
   return result;
 }
 
@@ -90,21 +91,13 @@ const generateNumbersFromCode = (code) => {
       let random;
       let initialIndex = generateIndex(codeNumbers, secretArray[index][i]);
       random = available[initialIndex];
-      console.log(initialIndex)
-      console.log(random)
       while (true) {
         if (result.indexOf(random) === -1 ) {
           result.push(random);
-          console.log('added')
-          console.log(random)
           break;
         } else {
           initialIndex += i;
           random = available[getRestNum(initialIndex)]
-          console.log('not added')
-          console.log(random)
-          console.log(getRestNum(initialIndex))
-          console.log(initialIndex)
         }
       }
     }
