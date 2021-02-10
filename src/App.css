@@ -76,12 +76,12 @@ code {
   .grid {
     position: absolute;
     left: 62px;
+    padding: 48px 16px 30px 25px!important;
   }
   .text-input {
     position: absolute !important;
     bottom: 20px !important;
-  }
-  .grid-wrapper {
+    min-width: 400px;
     padding-left: 67px !important;
   }
 }
